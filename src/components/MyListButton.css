@@ -1,0 +1,35 @@
+.my-list-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 1;
+  transition: all 0.2s ease;
+  opacity: 0; /* Começa invisível */
+}
+
+.movie-card:hover .my-list-button {
+  opacity: 1; /* Aparece no hover do card pai */
+}
+
+.my-list-button:hover {
+  transform: scale(1.1);
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.my-list-button.in-list {
+  background-color: var(--accent-primary);
+  border-color: var(--accent-primary);
+  opacity: 1; /* Fica sempre visível se já está na lista */
+}

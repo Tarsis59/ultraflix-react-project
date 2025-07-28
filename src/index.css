@@ -1,0 +1,325 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap");
+
+:root {
+  --font-family: "Inter", sans-serif;
+  --background-dark: #000;
+  --background-card: #181818;
+  --text-primary: #fff;
+  --text-secondary: #aaa;
+  --accent-primary: #db0000;
+  --accent-secondary: #ff0011;
+  --shadow-color: rgba(219, 0, 0, 0.5);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: var(--font-family);
+  background: var(--background-dark);
+  color: var(--text-primary);
+}
+.container {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 50px;
+}
+.header {
+  padding: 20px 0;
+}
+.header h1 {
+  font-size: 2rem;
+  font-weight: 900;
+  letter-spacing: 0.2em;
+  text-align: center;
+  color: var(--accent-primary);
+}
+
+.search-input {
+  width: 100%;
+  max-width: 400px;
+  margin: 40px auto;
+  display: block;
+  padding: 12px 20px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #333;
+  background-color: #111;
+  color: var(--text-primary);
+}
+
+.movie-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 25px;
+}
+.movie-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.movie-card {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.movie-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 30px var(--shadow-color);
+  z-index: 10;
+}
+.movie-card-image {
+  width: 100%;
+  padding-bottom: 150%;
+  background-size: cover;
+  background-position: center;
+}
+.movie-card-content {
+  display: none;
+}
+
+/* ============================================== */
+/* DETALHES DO FILME*/
+/* ============================================== */
+
+.movie-details-hero {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.movie-details-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+}
+
+.movie-details-backdrop::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 1) 20%,
+    rgba(0, 0, 0, 0.5) 60%
+  );
+  backdrop-filter: blur(8px);
+}
+
+.movie-details-container {
+  position: relative;
+  width: 100%;
+}
+
+.movie-details-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 50px;
+  max-width: 1200px;
+  margin: auto;
+  padding: 120px 50px;
+}
+
+.movie-details-poster-wrapper {
+  flex-shrink: 0;
+  width: 300px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+.movie-details-poster-wrapper img {
+  width: 100%;
+  display: block;
+}
+
+.movie-details-info {
+  color: #fff;
+  min-width: 0;
+}
+
+.movie-details-info h1 {
+  font-size: 4rem;
+  font-weight: 900;
+}
+
+.recommendations-container {
+  padding: 40px 0;
+  background-color: var(--background-dark);
+}
+
+.loading-fullscreen {
+  width: 100vw;
+  height: 100vh;
+  background: #000;
+}
+
+.page-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 40px 0;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--accent-primary);
+  display: inline-block;
+}
+
+.video-responsive {
+  position: relative;
+  overflow: hidden;
+  padding-top: 56.25%;
+  width: 80vw;
+  max-width: 1120px;
+}
+
+.video-responsive iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* ============================================== */
+/* ESTILOS DOS BOTÕES DE AÇÃO */
+/* ============================================== */
+
+.action-buttons {
+  margin-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  align-items: center;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px 24px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 1rem;
+  text-decoration: none;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+.btn.btn-primary {
+  background-color: var(--accent-primary);
+  color: var(--text-primary);
+}
+
+.btn.btn-primary:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px var(--shadow-color);
+  background-color: var(--accent-secondary);
+}
+
+.btn.btn-secondary {
+  background-color: transparent;
+  color: var(--text-primary);
+  border-color: var(--text-primary);
+}
+
+.btn.btn-secondary:hover {
+  background-color: var(--text-primary);
+  color: var(--background-dark);
+  transform: scale(1.05);
+}
+
+.btn.btn-tertiary {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--text-secondary);
+}
+
+.btn.btn-tertiary:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: var(--text-primary);
+  transform: scale(1.05);
+}
+
+.header-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 50px;
+  height: 80px;
+}
+
+.auth-status {
+  position: absolute;
+  right: 50px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.person-details-layout {
+  display: flex;
+  gap: 40px;
+  margin-top: 40px;
+  margin-bottom: 60px;
+}
+
+.person-sidebar {
+  flex: 0 0 300px;
+}
+
+.person-photo {
+  width: 100%;
+  border-radius: 12px;
+}
+
+.person-main-content {
+  flex: 1;
+}
+
+.person-name {
+  font-size: 3.5rem;
+  font-weight: 900;
+  margin-bottom: 30px;
+}
+
+.person-biography h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  border-left: 3px solid var(--accent-primary);
+  padding-left: 10px;
+}
+
+.person-biography p {
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+
+@media (max-width: 768px) {
+  .person-details-layout {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .person-sidebar {
+    width: 100%;
+    max-width: 300px;
+  }
+}

@@ -1,0 +1,32 @@
+.auth-status {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.auth-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid var(--accent-primary);
+}
+
+.auth-button {
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background-color: var(--accent-primary);
+  color: var(--text-primary);
+}
+
+.auth-button.logout {
+  background-color: #333;
+}
+
+.auth-button:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}

@@ -1,0 +1,45 @@
+.movie-row-section {
+  margin-bottom: 40px;
+}
+
+.movie-row-title {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  padding-left: 50px; /* Alinha com o padding do container */
+}
+
+.movie-row-list {
+  display: flex;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0 50px 20px 50px;
+  gap: 20px;
+}
+
+.movie-row-list::-webkit-scrollbar {
+  height: 10px;
+}
+
+.movie-row-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.movie-row-list::-webkit-scrollbar-thumb {
+  background-color: #333;
+  border-radius: 10px;
+}
+
+.movie-row-item {
+  flex: 0 0 200px; /* Define um tamanho fixo para cada item */
+  width: 200px;
+}
+
+/* Ajusta o MovieCard para o contexto da fileira */
+.movie-row-item .movie-card {
+  transition: transform 0.3s ease;
+}
+
+.movie-row-item .movie-card:hover {
+  transform: scale(1.08);
+  z-index: 10;
+}
